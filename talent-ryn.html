@@ -6,8 +6,8 @@
     <title>Ryn Kurogane - PortalS</title>
     <meta property="og:title" content="Ryn Kurogane - PortalS">
     <meta property="og:description" content="Agencia VTuber operando en Latinoamérica bajo la marca de PixelDubbing EIRL.">
-    <meta property="og:image" content="http://portalsvt.com/img/portals_logo.png">
-    <meta property="og:url" content="http://portalsvt.com/">
+    <meta property="og:image" content="http://portalsvt.com/img/favicon.png">
+    <meta property="og:url" content="http://portalsvt.com/talent-ryn">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PortalS">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -35,9 +35,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="https://portalsvt.com/">Talentos</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://portalsvt.com/company">Compañia</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://portalsvt.com/about-us">Conocenos</a></li>
             <li class="nav-item"><a class="nav-link" href="https://portalsvt.com/contact">Contacto</a></li>
         </ul>
+        <button id="themeToggle" class="theme-toggle ml-2" aria-label="Cambiar tema" title="Cambiar tema">
+            <i class="fas fa-moon"></i><span> Tema</span>
+        </button>
         </div>
     </div>
     </nav>
@@ -63,7 +66,7 @@
                 <div class="talent-logo-container">
                     <img src="img/logo_rynkurogane.png" alt="Ryn Kurogane Logo" class="talent-logo">
                 </div>
-                <p class="talent-tagline">"¡Kuro Kuro Ryn! Tu motociclista idol de confianza, ¡Kuroryn! ♡"</p>
+                <p class="talent-tagline">"¡Kuro Kuro Ryn! Tu motociclista idol de confianza, ¡Kuroryn! 🩷"</p>
                 <p class="about-text mb-4">
                     Rynvalis Kaelith Lunaethra Ryn Ryn Ryn Kurogannis VII (alias, Ryn Kurogane),
                     es la princesa bendecida por la suerte del Reino Limonero.
@@ -136,7 +139,7 @@
                     </div>
                     <div class="info-item">
                         <div class="info-label"><i class="fas fa-times-circle"></i> No le gusta</div>
-                        <div class="info-value">Las berenjenas, que le den miedo las motos, cuando no tiene tiempo de mirar Kamen Rider</div>
+                        <div class="info-value">Las berenjenas, que le den miedo las motos, cuando no tiene tiempo de mirar Kamen Rider.</div>
                     </div>
                     <div class="info-item">
                         <div class="info-label"><i class="fas fa-music"></i> Musica favorita</div>
@@ -190,7 +193,7 @@
                     <h5 class="footer-heading">SITIOS</h5>
                     <div class="footer-links">
                         <a href="https://portalsvt.com/">Talentos</a>
-                        <a href="https://portalsvt.com/company">Compañia</a>
+                        <a href="https://portalsvt.com/about-us">Conocenos</a>
                         <a href="https://portalsvt.com/contact">Contacto</a>
                     </div>
                 </div>
@@ -229,6 +232,29 @@ if (thumbs.length && mainImg) {
   });
 }
 
+    </script>
+
+    <script>
+      (function() {
+        const body = document.body;
+        const toggle = document.getElementById('themeToggle');
+        const STORAGE_KEY = 'portals-theme';
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'dark') body.classList.add('dark-theme');
+        else if (stored === 'light') body.classList.remove('dark-theme');
+        function syncIcon() {
+          const isDark = body.classList.contains('dark-theme');
+          toggle && (toggle.innerHTML = (isDark
+            ? '<i class="fas fa-sun"></i><span> Tema</span>'
+            : '<i class="fas fa-moon"></i><span> Tema</span>'));
+        }
+        syncIcon();
+        toggle && toggle.addEventListener('click', function() {
+          const isDark = body.classList.toggle('dark-theme');
+          localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
+          syncIcon();
+        });
+      })();
     </script>
 </body>
 </html>
